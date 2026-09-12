@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { CompetitionEntry } from './types';
-import { processPdf } from './services/geminiService';
+import { processPdf } from './services/pdfService';
 import FileUpload from './components/FileUpload';
 import { CsvIcon, TxtIcon, RefreshIcon } from './components/IconComponents';
 
@@ -144,7 +144,7 @@ const App: React.FC = () => {
         </main>
         
          <footer className="text-center mt-8 text-slate-400 text-sm">
-            <p>&copy; {new Date().getFullYear()} - AI Destekli PDF Dönüştürücü</p>
+            <p>&copy; {new Date().getFullYear()} - PDF Yarış Listesi Dönüştürücü</p>
         </footer>
       </div>
     </div>

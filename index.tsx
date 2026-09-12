@@ -8,8 +8,15 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const globalWithRoot = globalThis as typeof globalThis & {
+  _reactRoot?: ReactDOM.Root;
+};
+
+if (!globalWithRoot._reactRoot) {
+  globalWithRoot._reactRoot = ReactDOM.createRoot(rootElement);
+}
+
+globalWithRoot._reactRoot.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
